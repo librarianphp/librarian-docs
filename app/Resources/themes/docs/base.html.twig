@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %} {{ site_title() }} {% endblock %}</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% block description %} {{ site_description() }} {% endblock %}">
+    <meta name="author" content="Librarian">
+
+    <link href="{{ site_root() }}css/app.css" rel="stylesheet">
+
+    {% block includes %}
+    {% endblock %}
+</head>
+
+<body class="bg-gradient-to-br from-gray-900 to-purple-900">
+
+
+    <div class="container mx-auto text-gray-50 bg-purple-900">
+        <div class="px-4 py-4">
+            <p class="py-2 float-right">
+                <a href="{{ site_root() }}" title="Home">
+                    <span class="icon is-medium"><i class="fas fas-lg fa-home"></i></span>
+                </a>
+
+                {% for title,link in social_links() %}
+                    {% if link %}
+                        <a href="{{ link }}" title="{{ title }}">
+                                <span class="icon">
+                                    <i class="fab fa-{{ title|lower }}"></i>
+                                </span>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+
+                <a href="{{ site_root() }}feed" title="RSS Feed">
+                    <span class="icon is-medium"><i class="fas fas-lg fa-rss"></i></span>
+                </a>
+            </p>
+
+                <h1 class="text-4xl header"><a href="{{ site_root() }}">{{ site_title() }}</a></h1>
+                <p class="clear-both"></p>
+            </div>
+        </div>
+
+
+<div class="container mx-auto">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div class="shadow-sm bg-gray-100">
+            {% include '_partials/sidebar.html.twig' %}
+        </div>
+        <div class="lg:col-span-3 px-6 py-6 bg-gray-50 shadow-sm">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </div>
+</div>
+
+{% include '_partials/footer.html.twig' %}
+
+<script defer src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"></script>
+<script type="text/javascript" src="{{ site_root() }}js/prism.js"></script>
+</body>
+
+</html>
+

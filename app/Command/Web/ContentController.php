@@ -1,0 +1,55 @@
+<?php
+
+namespace App\Command\Web;
+
+use Librarian\Provider\TwigServiceProvider;
+use Librarian\Response;
+use Librarian\Provider\ContentServiceProvider;
+use Librarian\WebController;
+
+/**
+ * Class StaticController
+ * Renders content from the data dirs
+ * @package App\Command\Web
+ */
+class ContentController extends WebController
+{
+    /**
+     * @throws \Exception
+     */
+    public function handle()
+    {
+        /** @var TwigServiceProvider $twig */
+        $twig = $this->getApp()->twig;
+
+        /** @var ContentServiceProvider $content_provider */
+        $content_provider = $this->getApp()->content;
+
+        $request = $this->getRequest();
+
+        try {
+            $content = $content_provider->fetch($request->getRoute() . '/' . $request->getSlug());
+
+            if ($content === null) {
+                $content_list = $content_provider->fetchFrom($request->getRoute());
+                $response = new Response($twig->render('content/listing.html.twig', [
+                    'content_list' => $content_list
+                ]));
+
+                $response->output();
+                return 0;
+            }
+        } catch (\Exception $e) {
+            Response::redirect('/notfound');
+        }
+
+        $output = $twig->render('content/single.html.twig', [
+            'content' => $content
+        ]);
+
+
+        $response = new Response($output);
+        $response->output();
+        return 0;
+    }
+}
