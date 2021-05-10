@@ -14,22 +14,13 @@ This is an experimental project built to keep content decoupled from the applica
 
 Liquid tags supported at the moment:
 
-* {% audio path_to_mp3.mp3 %} (embeds mp3 audio)
-* {% video path_to_mp4.mp4 %} (embeds mp4 video)
-* {% twitter tweet_id %} (embeds a Tweet)
-* {% youtube video_ID %} (embeds a YouTube video)
-* {% github file_url %} (embeds a Gist or a Repository File)
+| Tag | Example | Description |
+|-----|---------|-------------|
+| `youtube` | `{% audio path_to_mp3.mp3 %}` | embeds mp3 audio |
+| `video` | `{% video path_to_mp4.mp4 %}` | embeds mp4 video |
+| `tweet_id` | `{% twitter tweet_id %}` | embeds a Tweet |
+| `youtube` | `{% youtube video_ID %}` | embeds a YouTube video |
+| `github` | `{% github file_url %}` | embeds a Gist or a Repository File |
 
 Librarian **is not** a static site generator, and the idea is to provide a mix of static files and dynamic capabilities that don't require sessions or databases.
 It facilitates contributing via GitHub, so it's great for documentation in general.
-
-## Requirements
-
-To run Librarian locally on a development environment, you'll need:
-
-- PHP 7.4+ (`cli` is all we need)
-- [Composer](https://getcomposer.org)
-- [NPM](https://docs.npmjs.com/cli/v7) (recommended due to Tailwind, but only required if you're modifying templates)
-
-Librarian uses [Tailwind css](https://tailwindcss.com/docs) for its front-end, but the main `app.css` is included in the `web` public directory to facilitate usage.
-You are only required to run `npm` if you make significant changes to the layout.
