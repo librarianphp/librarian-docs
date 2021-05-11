@@ -10,7 +10,7 @@ The front matter is fluid and doesn't have a fixed spec, meaning you can include
 Librarian doesn't use databases, sessions, or users. Administration is made from the command-line.
 For multiple authors, author information must be defined as metadata within the front matter.
 
-This is an experimental project built to keep content decoupled from the application itself, while keeping a very low footprint and functioning as a middle ground between static sites and dynamic CMSs.
+This is an **experimental** project built to keep content decoupled from the application itself, while keeping a very low footprint and functioning as a middle ground between static sites and dynamic CMSs.
 
 Liquid tags supported at the moment:
 
@@ -20,7 +20,12 @@ Liquid tags supported at the moment:
 | `video` | `{% video path_to_mp4.mp4 %}` | embeds mp4 video |
 | `tweet_id` | `{% twitter tweet_id %}` | embeds a Tweet |
 | `youtube` | `{% youtube video_ID %}` | embeds a YouTube video |
-| `github` | `{% github file_url %}` | embeds a Gist or a Repository File |
+| `github` | `{% github file_url %}` | embeds File from Github (Gists aren't supported at the moment) |
 
 Librarian **is not** a static site generator, and the idea is to provide a mix of static files and dynamic capabilities that don't require sessions or databases.
-It facilitates contributing via GitHub, so it's great for documentation in general.
+
+## About this Documentation
+
+This documentation website is built with Librarian. It is by no means complete, more content will be added as soon as possible.
+You can [contribute to Librarian's documentation via GitHub](https://github.com/librarianphp/librarian-docs).
+
