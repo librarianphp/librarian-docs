@@ -1,4 +1,5 @@
 .idea
+ansible/
 config.php
 vendor/
 node_modules/
