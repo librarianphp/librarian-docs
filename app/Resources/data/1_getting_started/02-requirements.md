@@ -1,7 +1,7 @@
 ---
 title: Requirements
 published: true
-description: Requirements to run Librarian
+description: Requirements to install and run Librarian
 ---
 
 To run Librarian locally on a development environment, you'll need:

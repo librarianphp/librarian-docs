@@ -1,7 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block featured_content %}
+{% block meta %}
+    <meta name="author" content="@erikaheidi">
+    <meta property="og:title" content="{{ content.frontMatterGet('title') }}">
+    <meta property="og:description" content="{{ content.frontMatterGet('description') }}">
+    <meta property="og:site_name" content="Librarian Documentation">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="{{ content.frontMatterGet('cover_image') ?? 'https://librarianphp.dev/img/default_cover_image.png' }}">
+    <meta property="og:image:url" content="{{ content.frontMatterGet('cover_image') ?? 'https://librarianphp.dev/img/default_cover_image.png' }}">
+    <meta property="og:image:alt" content="{{ content.frontMatterGet('title') }} - Librarian Docs">
+    <meta property="og:url" content="{{ site_url() }}/{{ content.getLink() }}">
 
+    <meta name="twitter:site" content="@erikaheidi">
+    <meta name="twitter:title" content="{{ content.frontMatterGet('title') }}">
+    <meta name="twitter:description" content="{{ content.frontMatterGet('description') }}">
+    <meta name="twitter:creator" content="Erika Heidi">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://librarianphp.dev/{{ content.getLink() }}"/>
+    <meta name="twitter:image" content="{{ content.frontMatterGet('cover_image') ?? 'https://librarianphp.dev/img/default_cover_image.png' }}">
+    <meta name="twitter:image:alt" content="{{ content.frontMatterGet('title') }} - Librarian Docs">
 {% endblock %}
 
 {% block content %}

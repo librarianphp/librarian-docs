@@ -10,4 +10,4 @@ To import DEV posts, first edit the `config.php` file to include your own DEV us
 php librarian import:devto
 ```
 
-This will import all your published posts on the DEV.to platform.
+This will import all your published posts on the DEV.to platform. Once the import is finished, you can reload your main page and you should see all posts listed within your blog.
