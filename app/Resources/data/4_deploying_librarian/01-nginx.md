@@ -1,5 +1,5 @@
 ---
-title: Deploying Librarian with Nginx
+title: Nginx + PHP-FPM Configuration
 published: true
 description: In this page you can find an example configuration to deploy Librarian within Nginx servers.
 ---
